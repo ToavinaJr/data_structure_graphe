@@ -17,6 +17,8 @@ public:
     void printEdges() const ;
 
     void exportToDot(const std::string& filename) const;
+    bool isDirectlyConnected(int node1, int node2 ) const;
+    bool isIndirectlyConnected(int node1, int node2) const ;
 private:    
     int m_numberOfNodes;
     std::vector<std::vector<bool>> m_adjacencyMatrix;
