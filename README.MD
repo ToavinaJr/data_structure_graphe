@@ -1,18 +1,34 @@
-# DATA STRUCTURE : GRAPHE
+# 🧠 STRUCTURE DE DONNÉES : GRAPHE
 
-## Objectif
+## 🎯 Objectif
 
-Apprendre un peu plus les structures de données et utiliser les bons outils comme **Graphviz**
+Approfondir la compréhension des **structures de données**, en particulier les **graphes**, et apprendre à les visualiser à l’aide d’outils comme **Graphviz**.
 
-## Comment installer **Graphviz**
+---
+
+## 🛠️ Installation de Graphviz
+
+Sur une distribution Linux basée sur Debian (ex : Ubuntu), installe Graphviz avec la commande suivante :
 
 ```bash
 sudo apt update
-sudo apt instal graphviz
+sudo apt install graphviz
 ```
 
-### Commande pour compiler en image le fichier dot
+---
+
+## 🖼️ Générer une image à partir d’un fichier `.dot`
+
+Utilise cette commande pour convertir un fichier `.dot` en image `.png` :
 
 ```bash
 dot -Tpng graph.dot -o graph.png
 ```
+
+---
+
+## 📌 Aperçu du graphe généré
+
+Voici une image générée à partir de `graph.dot` :
+
+![Graphe généré avec Graphviz](graph.png)
