@@ -13,6 +13,7 @@ public:
     void loadNumberOfNodes(std::ifstream& file);
     void loadAdjacencyMatrix(std::ifstream& file);
 
+    inline int getNumberOfNodes() const { return m_numberOfNodes; }
     void printAdjacencyMatrix() const;
     void printEdges() const ;
 

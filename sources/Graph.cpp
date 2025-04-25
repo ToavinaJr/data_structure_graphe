@@ -67,9 +67,6 @@ bool Graph::isDirectlyConnected(int node1, int node2 ) const {
     assert(node1 >= 0 && node1 < m_numberOfNodes);
     assert(node2 >= 0 && node2 < m_numberOfNodes);
 
-    if (node1 == node2)
-        return true;
-
     return m_adjacencyMatrix[node1][node2];    
 }
 
@@ -77,22 +74,20 @@ bool Graph::isIndirectlyConnected(int node1, int node2) const {
     assert(node1 >= 0 && node1 < m_numberOfNodes);
     assert(node2 >= 0 && node2 < m_numberOfNodes);
     
-    // Cas particuliers
-    if (node1 == node2) return false;  // Un nœud n'est pas indirectement connecté à lui-même
-    if (isDirectlyConnected(node1, node2)) return false;  // Déjà directement connectés
-    
+    // Vérification de la connexion directe
+    if (isDirectlyConnected(node1, node2)) return true;
+
+    // Exploration en profondeur pour trouver une connexion indirecte
     std::vector<bool> visited(m_numberOfNodes, false);
     
-    // Fonction récursive pour la recherche en profondeur
     std::function<bool(int)> dfs = [&](int current) {
-        if (current == node2) return true;
-        
         visited[current] = true;
         
-        // Explorer tous les voisins du nœud courant
+        // Explorer tous les voisins du nœud actuel
         for (int i = 0; i < m_numberOfNodes; ++i) {
             if (!visited[i] && m_adjacencyMatrix[current][i]) {
-                if (dfs(i)) return true;
+                if (i == node2) return true;  // Si on atteint le nœud 2
+                if (dfs(i)) return true;     // Poursuite de la recherche
             }
         }
         
