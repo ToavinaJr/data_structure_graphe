@@ -33,3 +33,20 @@ void Graph::printEdges() const {
         std::cout << "(" << edge.first << " -> " << edge.second << ")" << std::endl;
     }
 }
+
+void Graph::exportToDot(const std::string& filename) const {
+    std::ofstream out(filename);
+    if (!out) {
+        std::cerr << "Erreur lors de l'ouverture du fichier DOT !" << std::endl;
+        return;
+    }
+
+    out << "digraph G {\n";
+    for (const auto& edge : m_edges) {
+        out << "    " << edge.first << " -> " << edge.second << ";\n";
+    }
+    out << "}" << std::endl;
+
+    out.close();
+    std::cout << "Fichier DOT exporté vers " << filename << std::endl;
+}

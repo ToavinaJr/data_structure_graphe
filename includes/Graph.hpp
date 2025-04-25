@@ -16,6 +16,7 @@ public:
     void printAdjacencyMatrix() const;
     void printEdges() const ;
 
+    void exportToDot(const std::string& filename) const;
 private:    
     int m_numberOfNodes;
     std::vector<std::vector<bool>> m_adjacencyMatrix;

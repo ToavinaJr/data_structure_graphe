@@ -16,6 +16,7 @@ int main() {
     
     graph->printAdjacencyMatrix();
     graph->printEdges();
+    graph->exportToDot("data/graph.dot");
     
     delete graph;
     file.close();
