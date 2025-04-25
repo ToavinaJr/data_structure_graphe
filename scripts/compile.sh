@@ -1,0 +1,1 @@
+g++ -std=c++23 sources/*.cpp -o  output/application.out
